@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WePayIt - Juegos y Retos</title>
+    <meta name="description" content="Diviértete con los juegos y retos de WePayIt para decidir quién paga esta noche.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/games.css">
+    <link rel="stylesheet" href="assets/css/fun-features.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.svg" alt="WePayIt Logo">
+                    WePayIt
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="user-link">Dashboard</a></li>
+                    <li><a href="groups.html" class="user-link">Grupos</a></li>
+                    <li><a href="expenses.html" class="user-link">Gastos</a></li>
+                    <li><a href="games.html" class="user-link active">Juegos</a></li>
+                    <li>
+                        <div class="dropdown user-link">
+                            <button class="dropdown-toggle">
+                                <span class="user-name">Usuario</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="profile.html">Mi perfil</a>
+                                <a href="#" id="logout-btn">Cerrar sesión</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Games Content -->
+    <section class="games-section">
+        <div class="container">
+            <div class="games-header">
+                <h1>Juegos y Retos</h1>
+                <p>Diviértete con tus amigos y decide quién paga de forma aleatoria con estos juegos.</p>
+            </div>
+            
+            <div class="games-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="roulette">Ruleta</button>
+                    <button class="tab-btn" data-tab="random-draw">Sorteo</button>
+                    <button class="tab-btn" data-tab="challenges">Retos</button>
+                    <button class="tab-btn" data-tab="countdown">Cuenta atrás</button>
+                    <button class="tab-btn" data-tab="excuses">Excusas</button>
+                    <button class="tab-btn" data-tab="tip-calculator">Propinas</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Ruleta Tab -->
+                    <div class="tab-content active" id="roulette">
+                        <h2>¿Quién paga esta noche?</h2>
+                        <p>Gira la ruleta y deja que el destino decida quién pagará la cuenta esta noche.</p>
+                        
+                        <div id="roulette-container" class="roulette-container">
+                            <div class="form-group">
+                                <label for="roulette-group" class="form-label">Selecciona un grupo</label>
+                                <select id="roulette-group" class="form-input">
+                                    <!-- Opciones cargadas dinámicamente -->
+                                </select>
+                            </div>
+                            
+                            <div id="roulette-wheel" class="roulette-wheel">
+                                <p>Selecciona un grupo primero</p>
+                            </div>
+                            
+                            <div class="roulette-controls">
+                                <button id="spin-roulette" class="btn btn-primary btn-lg" disabled>Girar ruleta</button>
+                            </div>
+                            
+                            <div id="roulette-result" class="roulette-result"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sorteo Aleatorio Tab -->
+                    <div class="tab-content" id="random-draw">
+                        <h2>Sorteo Aleatorio</h2>
+                        <p>Realiza un sorteo aleatorio entre los miembros de un grupo para decidir quién paga o quién hace una tarea.</p>
+                        
+                        <div id="random-draw-container" class="random-draw-container">
+                            <div class="form-group">
+                                <label for="draw-group" class="form-label">Selecciona un grupo</label>
+                                <select id="draw-group" class="form-input">
+                                    <!-- Opciones cargadas dinámicamente -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="draw-title" class="form-label">Título del sorteo</label>
+                                <input type="text" id="draw-title" class="form-input" placeholder="Ej: Quién paga la cena">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="num-winners" class="form-label">Número de ganadores</label>
+                                <input type="number" id="num-winners" class="form-input" value="1" min="1" max="10">
+                            </div>
+                            
+                            <div id="draw-members" class="draw-members">
+                                <p>Selecciona un grupo primero</p>
+                            </div>
+                            
+                            <div class="draw-controls">
+                                <button id="start-draw" class="btn btn-primary btn-lg" disabled>Iniciar sorteo</button>
+                            </div>
+                            
+                            <div id="draw-result" class="draw-result"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Retos Tab -->
+                    <div class="tab-content" id="challenges">
+                        <h2>Retos para Saldar Deudas</h2>
+                        <p>¿Tienes deudas pendientes? Genera un reto divertido para saldarlas sin tener que pagar.</p>
+                        
+                        <div id="challenges-container" class="challenges-container">
+                            <div id="user-debts" class="user-debts">
+                                <!-- Deudas cargadas dinámicamente -->
+                            </div>
+                            
+                            <div class="challenge-controls">
+                                <button id="generate-challenge" class="btn btn-primary btn-lg">Generar reto</button>
+                            </div>
+                            
+                            <div id="challenge-result" class="challenge-result"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cuenta Atrás Tab -->
+                    <div class="tab-content" id="countdown">
+                        <h2>Cuenta Atrás para Pagar</h2>
+                        <p>Inicia una cuenta atrás y el último en pulsar el botón será quien pague la cuenta.</p>
+                        
+                        <div id="countdown-container" class="countdown-container">
+                            <div class="form-group">
+                                <label for="countdown-group" class="form-label">Selecciona un grupo</label>
+                                <select id="countdown-group" class="form-input">
+                                    <!-- Opciones cargadas dinámicamente -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="countdown-title" class="form-label">Título</label>
+                                <input type="text" id="countdown-title" class="form-input" placeholder="Ej: Quién paga las cervezas">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="countdown-duration" class="form-label">Duración (segundos)</label>
+                                    <input type="number" id="countdown-duration" class="form-input" value="30" min="5" max="60">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="countdown-amount" class="form-label">Importe (€)</label>
+                                    <input type="number" id="countdown-amount" class="form-input" value="10" min="1" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div id="countdown-members" class="countdown-members">
+                                <p>Selecciona un grupo primero</p>
+                            </div>
+                            
+                            <div class="countdown-controls">
+                                <button id="start-countdown" class="btn btn-primary btn-lg" disabled>Iniciar cuenta atrás</button>
+                            </div>
+                            
+                            <div id="countdown-result" class="countdown-result"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Excusas Tab -->
+                    <div class="tab-content" id="excuses">
+                        <h2>Generador de Excusas</h2>
+                        <p>¿No quieres pagar? Genera una excusa creativa para evitar pagar la cuenta.</p>
+                        
+                        <div id="excuse-generator" class="excuse-generator">
+                            <button id="generate-excuse" class="btn btn-primary btn-lg">Generar excusa</button>
+                            
+                            <div id="excuse-result" class="excuse-result"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Calculadora de Propinas Tab -->
+                    <div class="tab-content" id="tip-calculator">
+                        <h2>Calculadora de Propinas</h2>
+                        <p>Calcula fácilmente la propina y divide el total entre los miembros del grupo.</p>
+                        
+                        <div id="tip-calculator" class="tip-calculator">
+                            <div class="tip-calculator-form">
+                                <div class="form-group">
+                                    <label for="bill-amount" class="form-label">Importe de la cuenta (€)</label>
+                                    <input type="number" id="bill-amount" class="form-input" placeholder="0.00" min="0" step="0.01">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="tip-percentage" class="form-label">Porcentaje de propina (%)</label>
+                                    <input type="number" id="tip-percentage" class="form-input" value="10" min="0" max="100">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="num-people" class="form-label">Número de personas</label>
+                                    <input type="number" id="num-people" class="form-input" value="1" min="1">
+                                </div>
+                                
+                                <button id="calculate-tip" class="btn btn-primary">Calcular</button>
+                            </div>
+                            
+                            <div id="tip-result" class="tip-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logros y Estadísticas -->
+            <div class="fun-features-section">
+                <div class="fun-features-grid">
+                    <div class="fun-features-card">
+                        <h2>Tus Logros</h2>
+                        <div id="achievements-container" class="achievements-container">
+                            <!-- Logros cargados dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <div class="fun-features-card">
+                        <h2>Estadísticas Divertidas</h2>
+                        <div id="fun-stats-container" class="fun-stats-container">
+                            <!-- Estadísticas cargadas dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo-white.svg" alt="WePayIt Logo">
+                        WePayIt
+                    </a>
+                    <p class="footer-description">La forma más sencilla de gestionar gastos compartidos con amigos, compañeros de piso o en viajes.</p>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Navegación</h3>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="groups.html">Grupos</a></li>
+                        <li><a href="expenses.html">Gastos</a></li>
+                        <li><a href="games.html">Juegos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Soporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 WePayIt. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/games.js"></script>
+    <script src="assets/js/fun-features.js"></script>
+    
+    <script>
+        // Tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current button and content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Check if there's a hash in the URL
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const tabBtn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+                if (tabBtn) {
+                    tabBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

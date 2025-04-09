@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WePayIt - Registro</title>
+    <meta name="description" content="Crea tu cuenta en WePayIt y comienza a gestionar tus gastos compartidos de forma sencilla.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.svg" alt="WePayIt Logo">
+                    WePayIt
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#features" class="auth-link">Características</a></li>
+                    <li><a href="index.html#how-it-works" class="auth-link">Cómo funciona</a></li>
+                    <li><a href="index.html#testimonials" class="auth-link">Testimonios</a></li>
+                    <li><a href="login.html" class="auth-link">Iniciar sesión</a></li>
+                    <li><a href="register.html" class="btn btn-primary auth-link">Registrarse</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section class="register-section" id="register">
+        <div class="container">
+            <div class="register-container">
+                <div class="register-image animate-fade-in">
+                    <img src="assets/images/register-image.png" alt="WePayIt en acción">
+                </div>
+                <div class="register-form-container animate-fade-in delay-2">
+                    <div class="register-form">
+                        <h2 class="register-form-title">Crea tu cuenta gratis</h2>
+                        <form id="signup-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nombre completo</label>
+                                <input type="text" id="name" class="form-input" placeholder="Tu nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" id="password" class="form-input" placeholder="Mínimo 8 caracteres" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password" class="form-label">Confirmar contraseña</label>
+                                <input type="password" id="confirm-password" class="form-input" placeholder="Repite tu contraseña" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg form-submit">Registrarse</button>
+                            <p class="form-footer">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/logo-white.svg" alt="WePayIt Logo">
+                        WePayIt
+                    </a>
+                    <p class="footer-description">La forma más sencilla de gestionar gastos compartidos con amigos, compañeros de piso o en viajes.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Producto</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Características</a></li>
+                        <li><a href="index.html#how-it-works">Cómo funciona</a></li>
+                        <li><a href="#">Precios</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de servicio</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 WePayIt. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
